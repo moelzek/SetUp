@@ -1,0 +1,8 @@
+-- 17 JAN --
+Had some trouble installing FLash for firefox. Turns out the issue was just the permission for the .so file.
+Follow instructions here:
+https://www.cyberciti.biz/faq/redhat-linux-yum-install-flash-player-for-firefox/
+
+tar -zxvf flash_player_npapi_linux.x86_64.tar.gz
+sudo cp libflashplayer.so /usr/lib64/mozilla/plugins/
+sudo chmod 0755 /usr/lib64/mozilla/plugins/libflashplayer.so

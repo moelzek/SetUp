@@ -1,0 +1,13 @@
+-- 16 JAN 17 --
+Install git:
+sudo yum install git-all
+
+Set up a github key as decribed here:
+https://help.github.com/articles/connecting-to-github-with-ssh/
+
+-- 17 JAN 17 --
+Configure:
+  >  git config --global user.name 'TomSmithCGAT'
+  >  git config --global user.email 'tss38@cam.ac.uk'
+  >  git config --global core.editor emacs
+xo

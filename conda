@@ -1,0 +1,7 @@
+-- 16 JAN 17 --
+Using Conda for python package management:
+
+Download Anaconda then:
+  >  bash Downloads/Anaconda3-4.2.0-Linux-x86_64.sh
+  >  conda install -c r r-essentials
+  >  conda config --prepend channels toms

@@ -1,0 +1,9 @@
+-- 17 JAN 17 --
+Initial R set up using conda (see ./Conda)
+Downloaded Rstudio then:
+sudo rpm -Uvh rstudio-1.0.136-x86_64.rpm
+To install rstudio in /usr/bin
+
+Rstudio is using the correct R from conda:
+/home/FILESERVER5/proteomics/tss38/anaconda3/bin/R
+(3.3.2)
