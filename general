@@ -38,3 +38,44 @@ Downloading packages:
 (28/30): systemtap-client-2.8-10.el7.x86_64.rpm                                                                     | 2.9 MB  00:00:00     
 (29/30): libgfortran-4.8.5-4.el7.x86_64.rpm                                                                         | 292 kB  00:00:01     
 (30/30): systemtap-devel-2.8-10.el7.x86_64.rpm                                                                      | 1.6 MB  00:00:00     
+
+This solved this error but lead to the following:
+
+It appears ncdf is missing.
+
+From elsewhere:
+Error, nc-config not found or not executable.  This is a script that comes with the
+netcdf library, version 4.1-beta2 or later, and must be present for configuration
+to succeed.
+netCDF is dependent upon: hdf5, zlib and curl:
+http://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html#build_default:
+'The usual way of building netCDF requires the HDF5, zlib, and curl libraries. Versions required are at least HDF5 1.8.9, zlib 1.2.5, and curl 7.18.0 or later.'
+
+-- hdf5 --
+
+From scientificlinux forum post:
+http://scientificlinuxforum.org/index.php?showtopic=3225
+
+	
+hdf5 is in epel repo.
+So what You must do is:
+1 - add epel repo
+CODE
+# wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+# rpm -ivh epel-release-7-5.noarch.rpm
+
+2 - install hdf5
+CODE
+# yum install hdf5
+.
+
+Note download was:
+http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm
+
+Actually, it looks like I can just use:
+> sudo yum install netcdf-devel
+
+
+-- 18 JAN 17 --
+Need to install libssl for R package devtools
+yum install openssl-devel 

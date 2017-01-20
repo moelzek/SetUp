@@ -1,0 +1,12 @@
+-- 19 JAN 17 --
+Installed LibreOffice
+
+Download tar from:
+https://www.libreoffice.org/download/libreoffice-fresh/?type=rpm-x86_64&version=5.2&lang=en-US
+
+> tar -xvf LibreOffice_5.2.4_Linux_x86-64_rpm.tar.gz
+
+# remove any pre-existing versions
+>sudo yum remove openoffice* libreoffice*
+
+> sudo yum install LibreOffice_5.2.4.2_Linux_x86-64_rpm/RPMS/lib*.rpm
