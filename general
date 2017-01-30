@@ -79,3 +79,48 @@ Actually, it looks like I can just use:
 -- 18 JAN 17 --
 Need to install libssl for R package devtools
 yum install openssl-devel 
+
+-- 25 JAN 17 --
+Need to install lsb_release 
+See ./cgat for lsb_release installation
+
+-- 26 JAN 17 --
+Need to install readline, postgresql, boost
+See ./cgat for installation
+
+-- 28 JAN 17 --
+Set up scratch folder (/scratch) and automated clean up for files > 30 days old using instructions here:
+https://www.maketecheasier.com/delete-old-files-in-a-folder-automatically-in-linux/
+
+write bash script --> ~/git_repos/SetUp/cleanup_scratch.sh
+
+Then use 
+> crontab -e
+And type * 08 * * * ~/git_repos/SetUp/cleanup_scratch.sh in Vim
+to run script every day at 8am (hopefully)
+
+Check crontab jobs with:
+> crontab -u tss38 -l
+> crontab -l
+
+
+Need to install graphviz for dot (req. for report building)
+
+> yum install graphviz*
+
+
+Need to install fonts for cgatreport-test (X11)
+Error message:
+/home/FILESERVER5/proteomics/tss38/anaconda3/lib/python3.5/site-packages/rpy2/robjects/functions.py:106: UserWarning: Error in grid.Call(L_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  : 
+  X11 font -adobe-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*, face 1 at size 11 could not be loaded
+
+Resolve with :
+> sudo yum install xorg-x11-fonts-75dpi.noarch
+> sudo yum install xorg-x11-fonts-100dpi.noarch
+
+Check:
+ls /usr/share/X11/fonts/
+total 28
+drwxr-xr-x. 2 root root 8192 Jan 27 10:53 100dpi
+drwxr-xr-x. 2 root root 8192 Jan 27 10:52 75dpi
+drwxr-xr-x. 2 root root 4096 Feb  3  2016 util

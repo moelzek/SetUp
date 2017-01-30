@@ -1,0 +1,27 @@
+-- 27 JAN 17 --
+Want to mount the CGAT system.
+Follow the instructions from Ruban Savvy here:
+http://unix.stackexchange.com/questions/106480/how-to-copy-files-from-one-machine-to-another-using-ssh
+
+See also:
+http://www.linuxjournal.com/article/8904
+
+> sudo yum install sshfs
+
+Then need a private/public key. Followed instructions here:
+https://kb.iu.edu/d/aews
+
+# make keys
+> ssh-keygen -t rsa
+
+# copy key to cgat filesystem
+> scp /home/FILESERVER5/proteomics/tss38/.ssh/id_rsa.pub toms@cgatui.imm.ox.ac.uk:
+
+Then log into cgat system and cat public key into ~/.ssh/authorized_keys
+
+Then mount:
+> sshfs toms@cgatui.imm.ox.ac.uk:/ifs cgat_filesystem/
+
+Can now access cgat_filesystems straight from this folder!
+
+

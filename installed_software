@@ -1,0 +1,6 @@
+-- 27 JAN 17 --
+Fastqc (readqc pipeline)
+conda install fastqc (inc.  java-jdk 8.0.92-i bioconda)
+
+-- 30 JAN 17 --
+conda install cufflinks (for mapping pipeline) - installed cufflinks2

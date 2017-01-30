@@ -1,0 +1,90 @@
+-- 25 JAN 17 --
+Following the instructions from the cgatwiki on how to install cgat code collection:
+https://cgatwiki.anat.ox.ac.uk/xwiki/bin/view/CGAT/Conda 
+--> 'Install the development version of the CGAT code (from GitHub)'
+
+# add cgat channel
+> conda config --add channels cgat
+
+> source activate cgat_test
+
+> conda install cgat-devel
+
+Run into following error:
+(cgat_test) tss38@workstation-tom:~/git_repos$ lsb_release -a
+bash: lsb_release: command not found
+
+Looks like I need to install lsb_release:
+
+Following instructions here:
+https://www.unixmen.com/linux-troubleshooting-fix-lsb_release-command-found-centos/
+
+> sudo yum provides */lsb_release
+
+> sudo yum install redhat-lsb-core
+
+> sudo yum install redhat-lsb
+
+--> No error with repeat command:
+> conda install cgat-devel
+
+Install cgat code:
+> python setup.py develop
+
+Got error when running python:
+> import GTF as GTF
+ImportError: No module named 'bx'
+
+No bx-python 3.5 available on conda. So...
+> pip install bx-python
+
+CGATPipelines:
+> git clone git@github.com:CGATOxford/CGATPipelines.git
+
+> python setup.py develop
+Runs into error:
+error: ggplot 0.6.8 is installed but ggplot>=0.9.3 is required by {'CGATReport'}
+
+Resolve with:
+> conda install ggplot=0.11.5
+
+-- 26 JAN 17 --
+Next error:
+./rpy/rinterface/_rinterface.c:80:31: fatal error: readline/readline.h: No such file or directory
+ #include <readline/readline.h>
+
+Resolve with:
+> yum install readline-devel
+
+----------
+Next error:
+Error: pg_config executable not found.
+
+Resolve with:
+> sudo yum install postgresql-devel
+
+----------
+Next error:
+alignlib_lite.cpp:288:32: fatal error: boost/shared_ptr.hpp: No such file or directory
+ #include "boost/shared_ptr.hpp"
+
+Resolve with :
+> sudo yum install boost-devel
+
+NO MORE ERRORS!!!
+
+
+-- 27 JAN 17 - CGATREPORT --
+cgatreport throws an error with the ggplot version specified in the
+cgat-devel conda environment:
+
+When running make build_report with readqc pipeline:
+Exception occurred:
+  File "/home/FILESERVER5/proteomics/tss38/anaconda3/lib/python3.5/site-packages/setuptools-27.2.0-py3.5.egg/pkg_resources/__init__.py", line 859, in resolve
+    raise VersionConflict(dist, req).with_context(dependent_req)
+pkg_resources.VersionConflict: (ggplot 0.6.8 (/home/FILESERVER5/proteomics/tss38/anaconda3/lib/python3.5/site-packages), Requirement.parse('ggplot>=0.9.3'))
+
+resolved with (conda-forge update):
+> conda install ggplot=0.11.5 
+
+
