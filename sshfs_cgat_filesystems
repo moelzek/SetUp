@@ -30,4 +30,4 @@ http://askubuntu.com/questions/716612/sshfs-auto-reconnect
 
 > sshfs toms@cgatui.imm.ox.ac.uk:/ifs cgat_filesystem/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 
-Hopefully this will not need to 
+Hopefully this command will not need to be re-run
