@@ -7,3 +7,33 @@ To install rstudio in /usr/bin
 Rstudio is using the correct R from conda:
 /home/FILESERVER5/proteomics/tss38/anaconda3/bin/R
 (3.3.2)
+
+-- 30 JAN 17 --
+Issues with rendering text (see ./General 28 JAN 17).
+Tried resolving by installing fonts. Eeventually removed R and rstudio:
+
+> conda list|grep 'r-' |cut -f1 -d' '|xargs conda uninstall
+
+> rm -rf /usr/bin/rstudio
+
+Then reinstall R with conda:
+
+> conda install -c r r-essentials
+
+Now plotting works fine
+
+NOTE (31 JAN 17):
+The plotting issue resurfaced. Looks like the issue may relate to the conda r-base=3.3.1 build.
+Best resolved by upgrading r-base to 3.3.2
+
+> conda install r-base-3.3.2
+
+Need to monitor issue to ensure it only relates to this precise conda build
+
+
+-- 31 JAN 17 --
+#for rnaseqdiffexpression pipeline - makes salmon output sleuth-compatible
+> conda install --channel bioconda r-wasabi
+
+# differential expression for alignment-free quantification
+> conda install --channel bioconda r-sleuth
