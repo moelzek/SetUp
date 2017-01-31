@@ -2,5 +2,14 @@
 Fastqc (readqc pipeline)
 conda install fastqc (inc.  java-jdk 8.0.92-i bioconda)
 
+Also need to maintain contaminants file
+
 -- 30 JAN 17 --
 conda install cufflinks (for mapping pipeline) - installed cufflinks2
+
+conda install picard
+
+-- 31 JAN 17 --
+conda install ucsc-gtftogenepred (for mapping pipeline)
+
+
