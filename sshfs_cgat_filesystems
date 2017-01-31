@@ -24,4 +24,10 @@ Then mount:
 
 Can now access cgat_filesystems straight from this folder!
 
+-- 30 JAN 17 --
+Filesytem not available. Followed instructions here to automate reconnection:
+http://askubuntu.com/questions/716612/sshfs-auto-reconnect
 
+> sshfs toms@cgatui.imm.ox.ac.uk:/ifs cgat_filesystem/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+
+Hopefully this command will not need to be re-run
