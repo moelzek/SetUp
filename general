@@ -124,3 +124,12 @@ total 28
 drwxr-xr-x. 2 root root 8192 Jan 27 10:53 100dpi
 drwxr-xr-x. 2 root root 8192 Jan 27 10:52 75dpi
 drwxr-xr-x. 2 root root 4096 Feb  3  2016 util
+
+
+-- 31 JAN 17 --
+Want to install further fonts (microsoft) - 
+Follow instructions here:
+http://www.dedoimedo.com/computers/centos-7-perfect-desktop-more.html
+
+> sudo yum install curl cabextract xorg-x11-font-utils fontconfig
+> sudo rpm -i https://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
