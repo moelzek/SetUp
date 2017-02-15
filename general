@@ -133,3 +133,21 @@ http://www.dedoimedo.com/computers/centos-7-perfect-desktop-more.html
 
 > sudo yum install curl cabextract xorg-x11-font-utils fontconfig
 > sudo rpm -i https://sourceforge.net/projects/mscorefonts2/files/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+
+
+-- 10 FEB 17 --
+Previously install java with conda but want to run java as a firefox plugin as well,
+therefore removed conda installation and installed manually:
+https://www.java.com/en/download/help/linux_x64_install.xml
+- essentially just download and append to path
+
+Then to add plugin to firefox followed :
+http://www.oracle.com/technetwork/java/javase/manual-plugin-install-linux-136395.html
+
+> mkdir .mozilla/plugins
+> cd ~/.mozilla/plugins/
+> find /home/FILESERVER5/proteomics/tss38/apps/bio/jre1.8.0_121/ -name "*.so"
+> ln /home/FILESERVER5/proteomics/tss38/apps/bio/jre1.8.0_121/lib/amd64/libnpjp2.so .
+
+Restart firefox and tried to confirm it was working using link below but couldn't detect java version. Ensured that javascript was also working (as specified), still no luck. Gave up!
+https://www.java.com/en/download/installed.jsp
