@@ -1,3 +1,3 @@
 #!/bin/bash
 
-find /scratch/ -mtime +30 -delete
+find ~/scratch/ -mtime +7 -delete
