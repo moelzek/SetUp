@@ -1,0 +1,68 @@
+The following steps were used to generate the environment for running CGATcore pipelines:
+
+
+1. Install conda:
+
+$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+$ bash Miniconda3-latest-Linux-x86_64.sh
+$ source ~/.bashrc
+
+## check conda installed and in $PATH ##
+$ which conda
+
+
+2. Install CGAT:
+
+$ conda config --add channels defaults
+$ conda config --add channels bioconda
+$ conda config --add channels conda-forge
+
+$ conda create --name cgat-devel
+$ conda install -c bioconda quicksect
+
+$ cd; mkdir git_repos; cd git_repos
+
+$ git clone https://github.com/cgat-developers/cgat-apps
+$ git clone https://github.com/cgat-developers/cgat-core
+$ git clone https://github.com/cgat-developers/cgat-flow
+
+## For each of the cgat directories above, move into directory and then run:
+$ conda install -y `cat "conda_requires.txt" | grep -v "#" | xargs`
+$ python setup.py develop
+
+## check cgat-flow working:
+$ cgatflow --help
+
+# add following line to end of ~/.bashrc to activate conda env in each shell
+$ conda activate cgat-devel
+
+3. Configure CGAT:
+$ emacs ~/.cgat.yml
+#jobs_limit_db: 1
+#tmpdir: /rds/user/tss38/hpc-work/scratch
+#
+#cluster:
+#   queue: skylake
+#   options: -A LILLEY-SL3-CPU --mail-type=FAIL
+#   queue_manager: slurm
+#   memory_resource: mem
+
+4. Set up DRMAA:
+$ cd; mkdir drmaa
+# wget and untar most up to date version from:
+# https://github.com/natefoo/slurm-drmaa/releases/tag/1.1.0
+# Note that I had to download on desktop and rsync over
+
+$ cd slurm-drmaa-1.1.0
+$ ./configure --prefix /home/tss38/drmaa
+$ make
+$ make install
+
+# Add following line to ~/.bashrc
+$ export DRMAA_LIBRARY_PATH=/home/tss38/drmaa/lib/libdrmaa.so.1.0.8
+
+# test installation
+$ python
+>>> import drmaa
+
+# Done! To test, ran readqc pipeline to completion.
