@@ -151,3 +151,18 @@ http://www.oracle.com/technetwork/java/javase/manual-plugin-install-linux-136395
 
 Restart firefox and tried to confirm it was working using link below but couldn't detect java version. Ensured that javascript was also working (as specified), still no luck. Gave up!
 https://www.java.com/en/download/installed.jsp
+
+
+-- 22 FEB 17 --
+Install iotop to monitor I/O:
+> yum install iotop
+
+
+-- 27 FEB 17 --
+Install system-config-printer to configure printers!
+> yum install system-config-printer
+
+
+-- 30 MAR 17 --
+Install python package ete3 to deal with NCBI taxonomy
+http://etetoolkit.org/docs/latest/tutorial/tutorial_ncbitaxonomy.html

@@ -1,0 +1,8 @@
+-- 14 APR 17 --
+Installed open MS.
+
+Followed instuctions at:
+http://ftp.mi.fu-berlin.de/pub/OpenMS/release-documentation/html/install_linux.html
+
+added to .bashrc:
+export LD_LIBRARY_PATH="/PATH/TO/OpenMS/lib:$LD_LIBRARY_PATH"

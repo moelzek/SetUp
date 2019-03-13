@@ -31,3 +31,8 @@ http://askubuntu.com/questions/716612/sshfs-auto-reconnect
 > sshfs toms@cgatui.imm.ox.ac.uk:/ifs cgat_filesystem/ -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
 
 Hopefully this command will not need to be re-run
+
+If need to unmount filesystem, e.g error:
+fuse: bad mount point `/home/PROT-FILESVR1/proteomics/tss38/ifs': Transport endpoint is not connected
+use:
+> fusermount -uz /data

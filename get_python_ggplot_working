@@ -1,0 +1,35 @@
+>>> import ggplot
+print(/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/components/smoothers.py:4: FutureWarning: The pandas.lib module is deprecated and will be removed in a future version. These are private functions and can be accessed from pandas._libs.lib instead
+  from pandas.lib import Timestamp
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/__init__.py", line 21, in <module>
+    from .qplot import qplot
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/qplot.py", line 6, in <module>
+    from .geoms import geom_point, geom_bar, geom_boxplot, geom_histogram, geom_line
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/geoms/__init__.py", line 4, in <module>
+    from .geom_abline import geom_abline
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/geoms/geom_abline.py", line 6, in <module>
+    from .geom import geom
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/geoms/geom.py", line 10, in <module>
+    import ggplot.stats
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/stats/__init__.py", line 11, in <module>
+    from .stat_smooth import stat_smooth
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/stats/stat_smooth.py", line 6, in <module>
+    from ggplot.components import smoothers
+  File "/home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/components/smoothers.py", line 4, in <module>
+    from pandas.lib import Timestamp
+ImportError: cannot import name 'Timestamp'
+>>> exit()
+
+Based on:
+https://stackoverflow.com/questions/50591982/importerror-cannot-import-name-timestamp
+
+> cd /home/PROT-FILESVR1/proteomics/tss38/cgat-install/conda-install/envs/cgat-devel-proloc/lib/python3.6/site-packages/ggplot/
+> sed -i 's/pandas.lib/pandas/g' components/smoothers.py
+> python
+Python 3.6.6 | packaged by conda-forge | (default, Oct 12 2018, 14:08:43) 
+[GCC 4.8.2 20140120 (Red Hat 4.8.2-15)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import ggplot
+>>> exit()

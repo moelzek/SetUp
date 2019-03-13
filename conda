@@ -5,3 +5,29 @@ Download Anaconda then:
   >  bash Downloads/Anaconda3-4.2.0-Linux-x86_64.sh
   >  conda install -c r r-essentials
   >  conda config --prepend channels toms
+
+
+-- 27 FEB 18 --
+Recreating a conda environment after renaming filesystem messed up library paths!
+
+  >  conda install anaconda-clean
+  > anaconda-clean --yes
+Backup directory: /home/PROT-FILESVR1/proteomics/tss38/.anaconda_backup/2018-02-27T174912
+
+Forgot to make a list of previous packages so started over again!!
+Follow: https://cgatwiki.imm.ox.ac.uk/xwiki/bin/view/IT/Setup%20CGAT%20software%20environment/?srid=A6mwnKwM
+
+Relevant section copied below (note no location specified):
+
+# get a copy of the installation script
+wget https://raw.githubusercontent.com/CGATOxford/CGATPipelines/master/install-CGAT-tools.sh
+
+# install the environment. The following command takes about 30 minutes to complete so please be patient:
+bash install-CGAT-tools.sh --devel --git-ssh --env-name py36-v1 --ide
+
+
+
+# install bioservices (to query Uniprot db for protein ids in get_idrs.py)
+conda install -c bioconda-legacy easydev
+conda install -c conda-forge grequests  
+conda install -c bioconda bioservices
